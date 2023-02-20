@@ -19,11 +19,20 @@ After these steps your Raspberry Pi will act as a wired router. Network traffic 
 
 ### Step 1
 
-On your Raspberry Pi, open a terminal window and type:
+On your Raspberry Pi, open a terminal window and type
 
     sudo apt update
+    
+Next, type
+
     sudo apt upgrade
-  
+
+When this is finished, your system is up-to-date. It's wise to reboot your Raspberry Pi using
+
+    sudo reboot
+    
+
+
 ## Node-JS
 
 
