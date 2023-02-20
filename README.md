@@ -108,7 +108,15 @@ Time to test the network connection. Open a terminal window on the Raspberry Pi.
 
     ping 192.168.100.2
     
+You should get the following result.
+
+![ping](/img/ping.png)
+
+From now on it's possible to use [SSH](https://en.wikipedia.org/wiki/Secure_Shell) to access our Raspberry PI. On our Mac or PC open a terminal window and type
+
+    ssh pi@192.168.100.1
     
+
 
 
 
