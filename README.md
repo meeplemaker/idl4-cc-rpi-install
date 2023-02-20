@@ -120,7 +120,7 @@ Type in the password of the Raspberry Pi (the default password: raspberry)
    
 ![ssh step 1](/img/ssh-1.png)
 
-Et voilà, from now we have possible to have remote access to the Raspberry Pi.
+Et voilà, from now we have remote access to the Raspberry Pi.
 
 ![ssh step 2](/img/ssh-2.png)
 
@@ -197,6 +197,8 @@ Check a final time if you still have internet access on your Mac or PC.
 
 ## Node-JS
 
-
+...
 
 ## Node-RED
+
+...
