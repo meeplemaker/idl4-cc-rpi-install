@@ -59,7 +59,7 @@ Finally close raspi-config by selecting **Finish**
 
 ### Step 3
 
-Next we will change some network settings on the Raspberry Pi. We will give the **eth0** interface a fixed IP-address. I suggest to use **192.168.100.1** but any other valid IP-address works as well of course. The settings are store in /etc/dhcpcd.conf. Let's open with the built-in text-editor **nano**.
+Next we will change some network settings on the Raspberry Pi. We will give the **eth0** interface a fixed IP-address. I suggest to use **192.168.100.1** but any other valid IP-address works as well of course. The settings are stored in /etc/dhcpcd.conf. Let's open it with the built-in text-editor **nano**.
 
     sudo nano /etc/dhcpcd.conf
     
@@ -96,7 +96,7 @@ Time to reboot once more!
 
 Now it's time to connect your Mac or PC with the ethernet-cable to the Raspberry Pi.
 
-Give your Mac or PC a fixed IP-address in the same network range as the Raspberry PI. I use **192.168.100.2** with a subnet of **255.255.255.0** but any other valid IP-address in the same network will work. Use the IP-address from the Raspberry PI - **192.168.100.1** as the router-address.
+Give your Mac or PC a fixed IP-address in the same network range as the Raspberry Pi. I use **192.168.100.2** with a subnet of **255.255.255.0** but any other valid IP-address in the same network will work. Use the IP-address from the Raspberry PI - **192.168.100.1** as the router-address.
 
 ![network settings step 1](/img/network-settings-1.png)
 
