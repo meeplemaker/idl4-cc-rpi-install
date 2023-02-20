@@ -138,6 +138,11 @@ Look for the line **#net.ipv4.ip_forward=1** and uncomment it by removing the #-
 
 Save the file by pressing **ctrl-x**
 
+![sysctl](/img/sysctl.png)
+
+    sudo iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE
+    
+    sudo iptables -t nat -L
 
 ## Node-JS
 
