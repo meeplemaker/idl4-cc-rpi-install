@@ -92,7 +92,24 @@ Time to reboot once more!
 
     sudo reboot
     
-### Step 4   
+### Step 4
+
+Now it's time to connect your Mac or PC with the ethernet-cable to the Raspberry Pi.
+
+Give your Mac or PC a fixed IP-address in the same network range as the Raspberry PI. I use **192.168.100.2** with a subnet of **255.255.255.0** but any other valid IP-address in the same network will work. Use the IP-address from the Raspberry PI - **192.168.100.1** as the router-address.
+
+![network settings step 1](/img/network-settings-1.png)
+
+Set the DNS-server to **8.8.8.8**
+
+![network settings step 2](/img/network-settings-1.png)
+
+Time to test the network connection. Open a terminal window on the Raspberry Pi. Type
+
+    ping 192.168.100.2
+    
+    
+
 
 
 ## Node-JS
