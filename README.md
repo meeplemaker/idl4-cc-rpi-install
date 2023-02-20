@@ -45,7 +45,7 @@ Select **VNC**
 
 ![raspi-config step 2](/img/raspi-config-2.png)
 
-Enable VNC
+Select **Yes** to enable VNC
 
 ![raspi-config step 3](/img/raspi-config-3.png)
 
@@ -57,7 +57,24 @@ Finally close raspi-config by selecting **Finish**
 
 ![raspi-config step 5](/img/raspi-config-5.png)
 
+### Step 3
 
+Next we will change some network settings on the Raspberry Pi. We will give the **eth0** interface a fixed IP-address. I suggest to use **192.168.100.1** but any other valid IP-address works as well of course. The settings are store in /etc/dhcpcd.conf. Let's open with the built-in text-editor **nano**.
+
+    sudo nano /etc/dhcpcd.conf
+    
+Copy-paste the following lines to the bottom of the file.
+
+    interface eth0
+    static ip_address=192.168.10.1/24
+    static routers=192/168.100.
+    static domain_name_servers=8.8.8.8
+
+    interface wlan0
+    metric 200
+
+    interface eth0
+    metric 300
 
 ## Node-JS
 
