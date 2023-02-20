@@ -116,13 +116,13 @@ From now on it's possible to use [SSH](https://en.wikipedia.org/wiki/Secure_Shel
 
     ssh pi@192.168.100.1
     
+Type in the password of the Raspberry Pi (the default password: raspberry)
+   
 ![ssh step 1](/img/ssh-1.png)
 
-Type in the password of the Raspberry Pi (the default password: raspberry)
+Et voilà, from now on it's possible to have remote access to the Raspberry Pi.
 
 ![ssh step 2](/img/ssh-2.png)
-
-Et voilà, from now on it's possible to have remote access to the Raspberry Pi.
 
 If you have enabled VNC and installed VNC Viewer on your Mac or PC it's also possible to work on the remote desktop of the Raspberry Pi if you prefer to work with a GUI.
 
@@ -140,9 +140,21 @@ Save the file by pressing **ctrl-x**
 
 ![sysctl](/img/sysctl.png)
 
+Our Raspberry Pi has a public IP-address on the **wlan0** interface. We have to set up [**Network Address Translation**](https://en.wikipedia.org/wiki/Network_address_translation) or **Masquerading** so the internet traffic is directed to our private network. This is done by adding a line to **iptables**, the Linux firewall.
+
+Type in the following command
+
     sudo iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE
     
+Next, type    
+   
     sudo iptables -t nat -L
+
+You should get a similar result
+
+![iptables](/img/iptables.png)
+
+
 
 ## Node-JS
 
