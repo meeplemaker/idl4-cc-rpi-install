@@ -1,6 +1,6 @@
 # idl4-cc-rpi-install
 
-These instructions will guide you through the installation of your Raspberry Pi as how we will use it during the IDL4-CC-labs.
+These instructions will guide you through the installation of your Raspberry Pi as we will use it during the IDL4-CC-labs.
 
 ## Prerequisites
 
