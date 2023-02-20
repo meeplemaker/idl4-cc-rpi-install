@@ -65,17 +65,34 @@ Next we will change some network settings on the Raspberry Pi. We will give the 
     
 Copy-paste the following lines to the bottom of the file.
 
+    interface wlan0
+    metric 200
+    
     interface eth0
+    metric 300
     static ip_address=192.168.100.1/24
     static routers=192/168.100.1
     static domain_name_servers=8.8.8.8
 
-    interface wlan0
-    metric 200
+So what does it do? First, we give the **wlan0** interface a metric of 200 so outgoing network traffic (internet) is routed to this interface because the Raspberry Pi is connected to the internet with WIFI. Then, we also specify the metric of the **eth0** interface and give it a fixed IP-address of **192.168.100.1** with a subnet of **255.255.255.0**. From our Mac or PC, we will be able to reach the Raspberry Pi using this IP-address.
 
-    interface eth0
-    metric 300
+Close the editor by pressing **ctrl-x**
+
+![dchpcd.conf step 1](/img/dhcpcd-conf-1.png)
+
+Confirm by pressing **y**
+
+![dchpcd.conf step 2](/img/dhcpcd-conf-2.png)
+
+Finally press **return**
+
+![dchpcd.conf step 3](/img/dhcpcd-conf-3.png)
+
+Time to reboot once more!
+
+    sudo reboot
     
+### Step 4   
 
 
 ## Node-JS
