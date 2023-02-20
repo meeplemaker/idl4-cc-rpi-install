@@ -9,7 +9,7 @@ These instructions will guide you through the installation of your Raspberry Pi 
 3. Acces to an RJ-45 connector on your Mac or PC
 4. Ethernet cable
 5. Screen, keyboard & mouse (basic installation only)
-6. VNC Viewer installed on your Mac or PC [Download VNC® Viewer](https://www.realvnc.com/en/connect/download/viewer/)
+6. [VNC® Viewer](https://www.realvnc.com/en/connect/download/viewer/) installed on your Mac or PC
 
 ## Basic installation
 
@@ -19,7 +19,7 @@ After these steps your Raspberry Pi will act as a wired router. Network traffic 
 
 ### Step 1
 
-On your 
+On your Raspberry Pi, open a terminal window and type:
 
     sudo apt update
     sudo apt upgrade
