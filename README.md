@@ -5,7 +5,7 @@ These instructions will guide you through the installation of your Raspberry Pi 
 ## Prequisites
 
 1. Raspberry Pi 4B
-2. A MicroSD with a freshly installed Raspberry Pi OS using Raspberry Pi Imager
+2. A MicroSD with a freshly installed Raspberry Pi OS using [Raspberry Pi Imager](https://www.raspberrypi.com/software/)
 3. Acces to an RJ-45 connector on your Mac or PC
 4. Ethernet cable
 
