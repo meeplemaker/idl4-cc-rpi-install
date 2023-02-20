@@ -49,9 +49,11 @@ Enable VNC
 
 ![raspi-config step 3](/img/raspi-config-3.png)
 
-OK!
+**OK!**
 
 ![raspi-config step 4](/img/raspi-config-4.png)
+
+Finally close raspi-config by selecting **Finish**
 
 ![raspi-config step 5](/img/raspi-config-5.png)
 
