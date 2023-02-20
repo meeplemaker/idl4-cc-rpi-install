@@ -102,7 +102,7 @@ Give your Mac or PC a fixed IP-address in the same network range as the Raspberr
 
 Set the DNS-server to **8.8.8.8**
 
-![network settings step 2](/img/network-settings-1.png)
+![network settings step 2](/img/network-settings-2.png)
 
 Time to test the network connection. Open a terminal window on the Raspberry Pi. Type
 
