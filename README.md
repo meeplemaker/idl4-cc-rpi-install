@@ -74,7 +74,7 @@ Copy-paste the following lines to the bottom of the file.
     static routers=192/168.100.1
     static domain_name_servers=8.8.8.8
 
-So what does it do? First, we give the **wlan0** interface a metric of 200 so outgoing network traffic (internet) is routed to this interface because the Raspberry Pi is connected to the internet with WIFI. Then, we also specify the metric of the **eth0** interface and give it a fixed IP-address of **192.168.100.1** with a subnet of **255.255.255.0**. From our Mac or PC, we will be able to reach the Raspberry Pi using this IP-address.
+So what does it do? First, we give the **wlan0** interface a metric of 200 so outgoing network traffic (internet) will use this interface instead of the **eth0** interface. We also specify the metric of the **eth0** interface and give it a fixed IP-address of **192.168.100.1** with a subnet of **255.255.255.0**. From our Mac or PC, we will be able to reach the Raspberry Pi on this IP-address.
 
 Close the editor by pressing **ctrl-x**
 
