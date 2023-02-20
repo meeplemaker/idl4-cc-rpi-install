@@ -31,6 +31,30 @@ When this is finished, your system is up-to-date. It's wise to reboot your Raspb
 
     sudo reboot
     
+### Step 2
+
+Next we will enable VNC so it is possible to access the Raspberry desktop from the Mac or PC. In the terminal window type
+
+    sudo raspi-config
+    
+Select **Interace Options**
+
+![raspi-config step 1](/img/raspi-config-1.png)
+
+Select **VNC**
+
+![raspi-config step 2](/img/raspi-config-2.png)
+
+Enable VNC
+
+![raspi-config step 3](/img/raspi-config-3.png)
+
+OK!
+
+![raspi-config step 4](/img/raspi-config-4.png)
+
+![raspi-config step 5](/img/raspi-config-5.png)
+
 
 
 ## Node-JS
