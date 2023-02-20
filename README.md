@@ -66,8 +66,8 @@ Next we will change some network settings on the Raspberry Pi. We will give the 
 Copy-paste the following lines to the bottom of the file.
 
     interface eth0
-    static ip_address=192.168.10.1/24
-    static routers=192/168.100.
+    static ip_address=192.168.100.1/24
+    static routers=192/168.100.1
     static domain_name_servers=8.8.8.8
 
     interface wlan0
@@ -75,6 +75,8 @@ Copy-paste the following lines to the bottom of the file.
 
     interface eth0
     metric 300
+    
+
 
 ## Node-JS
 
