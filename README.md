@@ -9,7 +9,7 @@ These instructions will guide you through the installation of your Raspberry Pi 
 3. Acces to an RJ-45 connector on your Mac or PC
 4. Ethernet cable
 5. Screen, keyboard & mouse (basic installation only)
-6. [VNC® Viewer](https://www.realvnc.com/en/connect/download/viewer/) installed on your Mac or PC
+6. [VNC® Viewer](https://www.realvnc.com/en/connect/download/viewer/) installed on your Mac or PC (optional)
 
 ## Basic installation
 
@@ -31,7 +31,7 @@ When this is finished, your system is up-to-date. It's wise to reboot your Raspb
 
     sudo reboot
     
-### Step 2
+### Step 2 (optional)
 
 Next we will enable VNC so it is possible to access the Raspberry desktop from the Mac or PC. In the terminal window type
 
@@ -116,8 +116,27 @@ From now on it's possible to use [SSH](https://en.wikipedia.org/wiki/Secure_Shel
 
     ssh pi@192.168.100.1
     
+![ssh step 1](/img/ssh-1.png)
 
+Type in the password of the Raspberry Pi (the default password: raspberry)
 
+![ssh step 2](/img/ssh-2.png)
+
+Et voilà, from now on it's possible to have remote access to the Raspberry Pi.
+
+If you have enabled VNC and installed VNC Viewer on your Mac or PC it's also possible to work on the remote desktop of the Raspberry Pi if you prefer to work with a GUI.
+
+### Step 5
+
+Almost there! Our Raspberry Pi has internet connection but our Mac or PC has only access to the local network. We need to setup the Raspberry Pi so it shares it's internet connection. This is done by enable ip-forwarding.
+
+Open the file /etc/sysctl.conf in nano
+
+    sudo nano /etc/sysctl.conf
+    
+Look for the line **#net.ipv4.ip_forward=1** and uncomment it by removing the #-symbol
+
+Save the file by pressing **ctrl-x**
 
 
 ## Node-JS
