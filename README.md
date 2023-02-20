@@ -12,6 +12,9 @@ These instructions will guide you through the installation of your Raspberry Pi 
 
 ## Basic installation
 
+After these steps your Raspberry Pi will act as a wired router. Network access is forwarded in the Raspberry Pi so it is possile to access the internet while your Mac or PC is connected using an ethernet cable with the Raspberry PI.
+
+![General network setup](/img/network.png)
 
 
     sudo apt update
