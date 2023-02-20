@@ -163,13 +163,13 @@ You should get a window like this
 ![ping 8.8.8.8](/img/ping-internet.png)
 
 
-We will save these rule to a ruleset so we can use it whenever we want
+We will save these rule to a ruleset so we can use it whenever we want.
 
 First we make a directory where we will store the ruleset
 
     sudo mkdir /etc/iptables
 
-Then, we make a file to put the ruleset into
+Then, we make a file to copy the ruleset into
 
     sudo touch /etc/iptables/rules.v4
     
