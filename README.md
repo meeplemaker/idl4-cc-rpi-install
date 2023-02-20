@@ -112,7 +112,7 @@ You should get the following result.
 
 ![ping](/img/ping.png)
 
-From now on it's possible to use [SSH](https://en.wikipedia.org/wiki/Secure_Shell) to access our Raspberry PI. On our Mac or PC open a terminal window and type
+From now on it's possible to use [SSH](https://en.wikipedia.org/wiki/Secure_Shell) to access our Raspberry Pi. On our Mac or PC open a terminal window and type
 
     ssh pi@192.168.100.1
     
@@ -120,7 +120,7 @@ Type in the password of the Raspberry Pi (the default password: raspberry)
    
 ![ssh step 1](/img/ssh-1.png)
 
-Et voilà, from now on it's possible to have remote access to the Raspberry Pi.
+Et voilà, from now we have possible to have remote access to the Raspberry Pi.
 
 ![ssh step 2](/img/ssh-2.png)
 
@@ -154,7 +154,46 @@ You should get a similar result
 
 ![iptables](/img/iptables.png)
 
+Now it's time to test if we have an internet connection. Fire up a browser on your Mac or PC and see if you can browse the internet. Alternatively you can open up a terminal window and type
 
+    ping 8.8.8.8
+    
+You should get a window like this
+
+![ping 8.8.8.8](/img/ping-internet.png)
+
+
+We will save these rule to a ruleset so we can use it whenever we want
+
+First we make a directory where we will store the ruleset
+
+    sudo mkdir /etc/iptables
+
+Then, we make a file to put the ruleset into
+
+    sudo touch /etc/iptables/rules.v4
+    
+Finally, save the current rules into the ruleset
+
+    sudo iptables-save | sudo tee /etc/iptables/rules.v4
+  
+Every time we boot up our Raspberry Pi we will copy these rules and add them to the firewall. Open the file /etc/rc.local
+
+    sudo nano /etc/rc.local
+
+And add the following line just before **exit0**
+
+    iptables-restore < /etc/iptables/rules.v4
+
+It should look similar like this
+
+![rc.local](/img/rc-local.png)
+
+Reboot your Raspberry Pi a final time
+
+    sudo reboot
+    
+Check a final time if you still have internet access on your Mac or PC.    
 
 ## Node-JS
 
