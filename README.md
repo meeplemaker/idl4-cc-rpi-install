@@ -174,13 +174,13 @@ Save the file by pressing **ctrl-x**
 
 ![sysctl](/img/sysctl.png)
 
-Our Raspberry Pi has a public IP-address on the **wlan0** interface. We have to set up [**Network Address Translation**](https://en.wikipedia.org/wiki/Network_address_translation) or **Masquerading** so the internet traffic is directed to our private network. This is done by adding a line to **iptables**, the Linux firewall.
-
 We have to reboot so the Raspberry Pi is using the new settings.
 
     sudo reboot
 
-With the Rapsberry Pi rebooted, type in the following command
+Our Raspberry Pi has a public IP-address on the **wlan0** interface. We have to set up [**Network Address Translation**](https://en.wikipedia.org/wiki/Network_address_translation) or **Masquerading** so the internet traffic is directed to our private network. This is done by adding a line to **iptables**, the Linux firewall.
+
+With the Raspberry Pi rebooted, type in the following command
 
     sudo iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE
     
