@@ -1,6 +1,6 @@
 # idl4-cc-rpi-install
 
-These instructions will guide you through the installation of your Raspberry Pi as how we will use it during the IDL4-CC-labs.
+These instructions will guide you through the installation of your Raspberry Pi as we will use it during the IDL4-CC-labs.
 
 ## Prerequisites
 
@@ -59,7 +59,7 @@ Finally close raspi-config by selecting **Finish**
 
 ### Step 3
 
-Next we will change some network settings on the Raspberry Pi. We will give the **eth0** interface a fixed IP-address. I suggest to use **192.168.100.1** but any other valid IP-address works as well of course. The settings are store in /etc/dhcpcd.conf. Let's open with the built-in text-editor **nano**.
+Next we will change some network settings on the Raspberry Pi. We will give the **eth0** interface a fixed IP-address. I suggest to use **192.168.100.1** but any other valid IP-address works as well of course. The settings are stored in /etc/dhcpcd.conf. Let's open it with the built-in text-editor **nano**.
 
     sudo nano /etc/dhcpcd.conf
     
@@ -74,7 +74,7 @@ Copy-paste the following lines to the bottom of the file.
     static routers=192.168.100.1
     static domain_name_servers=8.8.8.8
 
-So what does it do? First, we give the **wlan0** interface a metric of 200 so outgoing network traffic (internet) is routed to this interface because the Raspberry Pi is connected to the internet with WIFI. Then, we also specify the metric of the **eth0** interface and give it a fixed IP-address of **192.168.100.1** with a subnet of **255.255.255.0**. From our Mac or PC, we will be able to reach the Raspberry Pi using this IP-address.
+So what does it do? First, we give the **wlan0** interface a metric of 200 so outgoing network traffic (internet) will use this interface instead of the **eth0** interface. We also specify the metric of the **eth0** interface and give it a fixed IP-address of **192.168.100.1** with a subnet of **255.255.255.0**. From our Mac or PC, we will be able to reach the Raspberry Pi on this IP-address.
 
 Close the editor by pressing **ctrl-x**
 
@@ -96,7 +96,7 @@ Time to reboot once more!
 
 Now it's time to connect your Mac or PC with the ethernet-cable to the Raspberry Pi.
 
-Give your Mac or PC a fixed IP-address in the same network range as the Raspberry PI. I use **192.168.100.2** with a subnet of **255.255.255.0** but any other valid IP-address in the same network will work. Use the IP-address from the Raspberry PI - **192.168.100.1** as the router-address.
+Give your Mac or PC a fixed IP-address in the same network range as the Raspberry Pi. I use **192.168.100.2** with a subnet of **255.255.255.0** but any other valid IP-address in the same network will work. Use the IP-address from the Raspberry PI - **192.168.100.1** as the router-address.
 
 ![network settings step 1](/img/network-settings-1.png)
 
@@ -163,13 +163,13 @@ You should get a window like this
 ![ping 8.8.8.8](/img/ping-internet.png)
 
 
-We will save these rule to a ruleset so we can use it whenever we want
+We will save these rule to a ruleset so we can use it whenever we want.
 
 First we make a directory where we will store the ruleset
 
     sudo mkdir /etc/iptables
 
-Then, we make a file to put the ruleset into
+Then, we make a file to copy the ruleset into
 
     sudo touch /etc/iptables/rules.v4
     
