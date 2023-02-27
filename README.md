@@ -17,6 +17,40 @@ After these steps your Raspberry Pi will act as a wired router. Network traffic 
 
 ![General network setup](/img/network.png)
 
+### Step 0
+
+To configure your WIFI on your Raspberry Pi there are 2 options. The first one is to configure it using the GUI. Simply type it using the menu.
+
+![Desktop WIFI](/img/desktop-wifi.png)
+
+Another option is by adding it manually to the file **/etc/wpa_supplicant/wpa_supplicant.conf**. To adapt it we open it with the built-in text-editor **nano**.
+
+    sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+    
+Add the following lines on the bottom of this file.
+
+    network={
+            ssid="*THE_NAME_OF_YOUR_WIFI_NETWORK*"
+            psk="*THE_PASSWORD_OF_YOUR_WIFI_NETWORK*"
+            key_mgmt=WPA-PSK
+    }
+
+Of course you have to change the **ssid** and **psk** with your network settings.
+
+Your file should look similar like this. Close the editor by pressing **ctrl-x**
+
+![wpa_supplicant.conf step 1](/img/wpa-1.png)
+
+Confirm by pressing **y**
+
+![wpa_supplicant.conf step 2](/img/wpa-2.png)
+
+Finally press **return**
+
+![wpa_supplicant.conf step 3](/img/wpa-3.png)
+
+It's possible to add multiple networks. Just add them to the bottom of the file.
+
 ### Step 1
 
 On your Raspberry Pi, open a terminal window and type
@@ -59,7 +93,7 @@ Finally close raspi-config by selecting **Finish**
 
 ### Step 3
 
-Next we will change some network settings on the Raspberry Pi. We will give the **eth0** interface a fixed IP-address. I suggest to use **192.168.100.1** but any other valid IP-address works as well of course. The settings are stored in /etc/dhcpcd.conf. Let's open it with the built-in text-editor **nano**.
+Next we will change some network settings on the Raspberry Pi. We will give the **eth0** interface a fixed IP-address. I suggest to use **192.168.100.1** but any other valid IP-address works as well of course. The settings are stored in /etc/dhcpcd.conf. So type
 
     sudo nano /etc/dhcpcd.conf
     
