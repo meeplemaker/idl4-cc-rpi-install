@@ -17,7 +17,7 @@ After these steps your Raspberry Pi will act as a wired router. Network traffic 
 
 ![General network setup](/img/network.png)
 
-### Step 0
+### Step 1
 
 To configure your WIFI on your Raspberry Pi there are 2 options. The first one is to configure it using the GUI. Simply type it using the menu.
 
@@ -51,7 +51,7 @@ Finally press **return**
 
 It's possible to add multiple networks. Just add them to the bottom of the file.
 
-### Step 1
+### Step 2
 
 On your Raspberry Pi, open a terminal window and type
 
@@ -65,7 +65,7 @@ When this is finished, your system is up-to-date. It's wise to reboot your Raspb
 
     sudo reboot
     
-### Step 2 (optional)
+### Step 3 (optional)
 
 Next we will enable VNC so it is possible to access the Raspberry desktop from the Mac or PC. In the terminal window type
 
@@ -91,7 +91,7 @@ Finally close raspi-config by selecting **Finish**
 
 ![raspi-config step 5](/img/raspi-config-5.png)
 
-### Step 3
+### Step 4
 
 Next we will change some network settings on the Raspberry Pi. We will give the **eth0** interface a fixed IP-address. I suggest to use **192.168.100.1** but any other valid IP-address works as well of course. The settings are stored in /etc/dhcpcd.conf. So type
 
@@ -126,7 +126,7 @@ Time to reboot once more!
 
     sudo reboot
     
-### Step 4
+### Step 5
 
 Now it's time to connect your Mac or PC with the ethernet-cable to the Raspberry Pi.
 
@@ -160,7 +160,7 @@ Et voilà, from now we have remote access to the Raspberry Pi.
 
 If you have enabled VNC and installed VNC Viewer on your Mac or PC it's also possible to work on the remote desktop of the Raspberry Pi if you prefer to work with a GUI.
 
-### Step 5
+### Step 6
 
 Almost there! Our Raspberry Pi has internet connection but our Mac or PC has only access to the local network. We need to setup the Raspberry Pi so it shares it's internet connection. This is done by enable ip-forwarding.
 
