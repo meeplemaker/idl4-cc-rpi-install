@@ -35,7 +35,7 @@ Add the following lines on the bottom of this file.
             key_mgmt=WPA-PSK
     }
 
-Of course you have to change the **ssid** and **psk** with your network settings.
+Of course you have to change the **ssid** and **psk** with your own network settings.
 
 Your file should look similar like this. Close the editor by pressing **ctrl-x**
 
