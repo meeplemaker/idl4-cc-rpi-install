@@ -30,8 +30,8 @@ Another option is by adding it manually to the file **/etc/wpa_supplicant/wpa_su
 Add the following lines on the bottom of this file.
 
     network={
-            ssid="*THE_NAME_OF_YOUR_WIFI_NETWORK*"
-            psk="*THE_PASSWORD_OF_YOUR_WIFI_NETWORK*"
+            ssid="THE_NAME_OF_YOUR_WIFI_NETWORK"
+            psk="THE_PASSWORD_OF_YOUR_WIFI_NETWORK"
             key_mgmt=WPA-PSK
     }
 
