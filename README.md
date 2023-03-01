@@ -332,6 +332,6 @@ To enable it type
 
     sudo systemctl enable nodered.service
 
-Disable the service can be done with
+Disabling the service can be done with
 
     sudo systemctl disable nodered.service
