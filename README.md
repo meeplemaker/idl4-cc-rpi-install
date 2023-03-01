@@ -290,7 +290,7 @@ The script will ask if we want to run the Pi-specific nodes. This is handy if we
 
 ![Node-RED script 1](/img/node-red-script-1.png)
 
-It will ask if we want to use specific settings - we'll leave this up for now. So press **N**
+It will ask if we want to use specific settings - we'll leave it like this. Just press **N**
 
 ![Node-RED script 2](/img/node-red-script-2.png)
 
