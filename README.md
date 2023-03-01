@@ -233,10 +233,106 @@ Reboot your Raspberry Pi a final time
     
 Check a final time if you still have internet access on your Mac or PC.    
 
+## Visual Studio Code
+
+Installing applications is a bit different on the Raspberry Pi. It's done using **apt** - a command-line utility for installing, updating, removing, and otherwise managing deb packages on Ubuntu, Debian, and related Linux distributions.
+
+You have already used it to update your system with the command
+
+    sudo apt update
+
+and 
+
+    sudo apt upgrade
+
+Before we install new package, it's always wise to run these 2 commands.
+
+To install Visual Studio Code you type
+
+    sudo apt install code
+
+Of course it's only available on the Raspberry Pi's GUI but it's a handy application. You can find it under Menu -> Programming -> Visual Studio Code.
+
+![Visual Studioc Code](/img/code.png)
+
 ## Node-JS
 
-...
+Next we will install Node-.js.
+
+First we have to add the repository for Node.js to your Raspberry Pi. You have 2 options. For the current release run the command.
+
+    curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
+
+For the current Long-Time-Release run the command
+
+    curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+
+Now you can install Node.js by running the command
+
+    sudo apt install nodejs
+
+Afterwards you can check if Node.js is correctly installed by typing
+
+    node -v
 
 ## Node-RED
 
-...
+Node-RED is a programming tool for wiring together hardware devices, APIs and online services in new and interesting ways.
+
+It provides a browser-based editor that makes it easy to wire together flows using the wide range of nodes in the palette that can be deployed to its runtime in a single-click.
+
+It's a great tool to run on the Raspberry Pi since it can easyly be used as a back-end for your multimedia installation. There are multiple ways to run Node-RED but we will run it locally on our Raspberry Pi. More information and the complete installation procedure can be found on https://nodered.org/docs/getting-started/raspberrypi
+
+There's a handy script that does most of the work for us. Let's run it by typing
+
+    bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered)
+
+The script will ask if we want to run the Pi-specific nodes. This is handy if we want to use the GPIO-pins. So press **Y**.
+
+![Node-RED script 1](/img/node-red-script-1.png)
+
+It will ask if we want to use specific settings - we'll leave this up for now. So press **N**
+
+![Node-RED script 2](/img/node-red-script-2.png)
+
+You can run Node-RED by typing
+
+    node-red
+
+Next, open up a browser-window on your Mac or PC and go to
+
+    192.168.100.1:1880
+
+And voilà, as you can see Node-RED is running on your Raspberry Pi.
+
+![Node-RED window 1](/img/node-red-1.png)
+
+You can stop Node-RED by pressin **ctrl-c**, Node-RED will be offline in your browser-window
+
+It's better to run Node-RED in the background. This can be done by running it as a service.
+
+You can start it by typing
+
+    node-red-start
+
+If we press **ctrl-c** you can notice Node-RED is still running in the background in your browser window.
+
+We can stop it by typing
+
+    node-red-stop
+
+To have access to the Node-RED-log type
+
+    node-red-log
+
+You can also start the Node-RED service on the Raspberry Pi OS Desktop by selecting the Menu -> Programming -> Node-RED menu option. It will open up the Node-RED-log as well.
+
+To autostart Node-RED when we boot the Raspberry Pi we have to enable it using **systemctl**
+
+To enable it type
+
+    sudo systemctl enable nodered.service
+
+Disable the service can be done with
+
+    sudo systemctl disable nodered.service
