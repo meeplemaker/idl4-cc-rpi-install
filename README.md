@@ -306,9 +306,9 @@ That's it! As you can see Node-RED is running on your Raspberry Pi.
 
 ![Node-RED window 1](/img/node-red-1.png)
 
-You can stop Node-RED by pressin **ctrl-c**, Node-RED will be offline in your browser-window
+You can stop Node-RED by pressing **ctrl-c**, Node-RED will be offline in your browser-window.
 
-It's better to run Node-RED in the background. This can be done by running it as a service.
+It's better to run Node-RED in the background. And this can be done by running it as a service.
 
 You can start it by typing
 
@@ -320,11 +320,11 @@ We can stop it by typing
 
     node-red-stop
 
-To have access to the Node-RED-log type
+To have access to the Node-RED's log type
 
     node-red-log
 
-You can also start the Node-RED service on the Raspberry Pi OS Desktop by selecting the Menu -> Programming -> Node-RED menu option. It will open up the Node-RED-log as well.
+You can also start the Node-RED service on the Raspberry Pi OS Desktop by selecting the Menu -> Programming -> Node-RED menu option. It will open up Node-RED's log as well.
 
 To autostart Node-RED when we boot the Raspberry Pi we have to enable it using **systemctl**
 
