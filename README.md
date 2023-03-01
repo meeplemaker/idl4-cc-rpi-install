@@ -162,7 +162,7 @@ If you have enabled VNC and installed VNC Viewer on your Mac or PC it's also pos
 
 ### Step 6
 
-Almost there! Our Raspberry Pi has internet connection but our Mac or PC has only access to the local network. We need to setup the Raspberry Pi so it shares it's internet connection. This is done by enable ip-forwarding.
+Almost there! Our Raspberry Pi has internet connection but our Mac or PC has only access to the local network. We need to setup the Raspberry Pi so it shares it's internet connection. This is done by enabling ip-forwarding.
 
 Open the file /etc/sysctl.conf in nano
 
@@ -199,7 +199,6 @@ Now it's time to test if we have an internet connection. Fire up a browser on yo
 You should get a window like this
 
 ![ping 8.8.8.8](/img/ping-internet.png)
-
 
 We will save this rule to a ruleset so we can use it whenever we want.
 
@@ -303,7 +302,7 @@ Next, open up a browser-window on your Mac or PC and go to
 
     192.168.100.1:1880
 
-And voilà, as you can see Node-RED is running on your Raspberry Pi.
+That's it! As you can see Node-RED is running on your Raspberry Pi.
 
 ![Node-RED window 1](/img/node-red-1.png)
 
