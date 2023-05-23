@@ -15,13 +15,13 @@ These instructions will guide you through the installation of your Raspberry Pi 
 
 After these steps your Raspberry Pi will act as a wired router. Network traffic is forwarded in the Raspberry Pi so it is possible to access the internet while your Mac or PC is connected using an ethernet cable with the Raspberry PI.
 
-![General network setup](/img/network.png)
+![General network setup](img/network.png)
 
 ### Step 1
 
 To configure your WIFI on your Raspberry Pi there are 2 options. The first one is to configure it using the GUI. The wifi-settings can be reached using the menu.
 
-![Desktop WIFI](/img/desktop-wifi.png)
+![Desktop WIFI](img/desktop-wifi.png)
 
 Another option is by adding it manually to the file **/etc/wpa_supplicant/wpa_supplicant.conf**. To adapt it we open it with the built-in text-editor **nano**.
 
@@ -39,15 +39,15 @@ Of course you have to change the **ssid** and **psk** with your own network sett
 
 Your file should look similar like this. Close the editor by pressing **ctrl-x**
 
-![wpa_supplicant.conf step 1](/img/wpa-1.png)
+![wpa_supplicant.conf step 1](img/wpa-1.png)
 
 Confirm by pressing **y**
 
-![wpa_supplicant.conf step 2](/img/wpa-2.png)
+![wpa_supplicant.conf step 2](img/wpa-2.png)
 
 Finally press **return**
 
-![wpa_supplicant.conf step 3](/img/wpa-3.png)
+![wpa_supplicant.conf step 3](img/wpa-3.png)
 
 It's possible to add multiple networks. Just add them to the bottom of the file.
 
@@ -73,23 +73,23 @@ Next we will enable VNC so it is possible to access the Raspberry desktop from t
     
 Select **Interace Options**
 
-![raspi-config step 1](/img/raspi-config-1.png)
+![raspi-config step 1](img/raspi-config-1.png)
 
 Select **VNC**
 
-![raspi-config step 2](/img/raspi-config-2.png)
+![raspi-config step 2](img/raspi-config-2.png)
 
 Select **Yes** to enable VNC
 
-![raspi-config step 3](/img/raspi-config-3.png)
+![raspi-config step 3](img/raspi-config-3.png)
 
 **OK!**
 
-![raspi-config step 4](/img/raspi-config-4.png)
+![raspi-config step 4](img/raspi-config-4.png)
 
 Finally close raspi-config by selecting **Finish**
 
-![raspi-config step 5](/img/raspi-config-5.png)
+![raspi-config step 5](img/raspi-config-5.png)
 
 ### Step 4
 
@@ -112,15 +112,15 @@ So what does it do? First, we give the **wlan0** interface a metric of 200 so ou
 
 Close the editor by pressing **ctrl-x**
 
-![dchpcd.conf step 1](/img/dhcpcd-conf-1.png)
+![dchpcd.conf step 1](img/dhcpcd-conf-1.png)
 
 Confirm by pressing **y**
 
-![dchpcd.conf step 2](/img/dhcpcd-conf-2.png)
+![dchpcd.conf step 2](img/dhcpcd-conf-2.png)
 
 Finally press **return**
 
-![dchpcd.conf step 3](/img/dhcpcd-conf-3.png)
+![dchpcd.conf step 3](img/dhcpcd-conf-3.png)
 
 Time to reboot once more!
 
@@ -132,11 +132,11 @@ Now it's time to connect your Mac or PC with the ethernet-cable to the Raspberry
 
 Give your Mac or PC a fixed IP-address in the same network range as the Raspberry Pi. I use **192.168.100.2** with a subnet of **255.255.255.0** but any other valid IP-address in the same network will work. Use the IP-address from the Raspberry PI - **192.168.100.1** as the router-address.
 
-![network settings step 1](/img/network-settings-1.png)
+![network settings step 1](img/network-settings-1.png)
 
 Set the DNS-server to **8.8.8.8**
 
-![network settings step 2](/img/network-settings-2.png)
+![network settings step 2](img/network-settings-2.png)
 
 Time to test the network connection. Open a terminal window on the Raspberry Pi. Type
 
@@ -144,7 +144,7 @@ Time to test the network connection. Open a terminal window on the Raspberry Pi.
     
 You should get the following result.
 
-![ping](/img/ping.png)
+![ping](img/ping.png)
 
 From now on it's possible to use [SSH](https://en.wikipedia.org/wiki/Secure_Shell) to access our Raspberry Pi. On our Mac or PC open a terminal window and type
 
@@ -152,11 +152,11 @@ From now on it's possible to use [SSH](https://en.wikipedia.org/wiki/Secure_Shel
     
 Type in the password of the Raspberry Pi (the default password: raspberry)
    
-![ssh step 1](/img/ssh-1.png)
+![ssh step 1](img/ssh-1.png)
 
 Et voilà, from now we have remote access to the Raspberry Pi.
 
-![ssh step 2](/img/ssh-2.png)
+![ssh step 2](img/ssh-2.png)
 
 If you have enabled VNC and installed VNC Viewer on your Mac or PC it's also possible to work on the remote desktop of the Raspberry Pi if you prefer to work with a GUI.
 
@@ -172,7 +172,7 @@ Look for the line **#net.ipv4.ip_forward=1** and uncomment it by removing the #-
 
 Save the file by pressing **ctrl-x**
 
-![sysctl](/img/sysctl.png)
+![sysctl](img/sysctl.png)
 
 We have to reboot so the Raspberry Pi is using the new settings.
 
@@ -190,7 +190,7 @@ Next, type
 
 You should get a similar result
 
-![iptables](/img/iptables.png)
+![iptables](img/iptables.png)
 
 Now it's time to test if we have an internet connection. Fire up a browser on your Mac or PC and see if you can browse the internet. Alternatively you can open up a terminal window and type
 
@@ -198,7 +198,7 @@ Now it's time to test if we have an internet connection. Fire up a browser on yo
     
 You should get a window like this
 
-![ping 8.8.8.8](/img/ping-internet.png)
+![ping 8.8.8.8](img/ping-internet.png)
 
 We will save this rule to a ruleset so we can use it whenever we want.
 
@@ -224,7 +224,7 @@ And add the following line just before **exit0**
 
 It should look similar like this
 
-![rc.local](/img/rc-local.png)
+![rc.local](img/rc-local.png)
 
 Reboot your Raspberry Pi a final time
 
@@ -252,7 +252,7 @@ To install Visual Studio Code you type
 
 Of course it's only available on the Raspberry Pi's GUI but it's a handy application. You can find it under Menu -> Programming -> Visual Studio Code.
 
-![Visual Studioc Code](/img/code.png)
+![Visual Studioc Code](img/code.png)
 
 ## Node-JS
 
@@ -288,11 +288,11 @@ There's a handy script that does most of the work for us. Let's run it by typing
 
 The script will ask if we want to run the Pi-specific nodes. This is handy if we want to use the GPIO-pins. So press **Y**.
 
-![Node-RED script 1](/img/node-red-script-1.png)
+![Node-RED script 1](img/node-red-script-1.png)
 
 It will ask if we want to use specific settings - we'll leave it like this. Just press **N**
 
-![Node-RED script 2](/img/node-red-script-2.png)
+![Node-RED script 2](img/node-red-script-2.png)
 
 You can run Node-RED by typing
 
@@ -304,7 +304,7 @@ Next, open up a browser-window on your Mac or PC and go to
 
 That's it! As you can see Node-RED is running on your Raspberry Pi.
 
-![Node-RED window 1](/img/node-red-1.png)
+![Node-RED window 1](img/node-red-1.png)
 
 You can stop Node-RED by pressing **ctrl-c**, Node-RED will be offline in your browser-window.
 
