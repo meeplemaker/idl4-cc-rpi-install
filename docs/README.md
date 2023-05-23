@@ -335,7 +335,3 @@ To enable it type
 Disabling the service can be done with
 
     sudo systemctl disable nodered.service
-
-
-
-XXX
