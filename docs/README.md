@@ -15,13 +15,13 @@ These instructions will guide you through the installation of your Raspberry Pi 
 
 After these steps your Raspberry Pi will act as a wired router. Network traffic is forwarded in the Raspberry Pi so it is possible to access the internet while your Mac or PC is connected using an ethernet cable with the Raspberry PI.
 
-![General network setup](/img/network.png)
+![General network setup](img/network.png)
 
 ### Step 1
 
 To configure your WIFI on your Raspberry Pi there are 2 options. The first one is to configure it using the GUI. The wifi-settings can be reached using the menu.
 
-![Desktop WIFI](/img/desktop-wifi.png)
+![Desktop WIFI](img/desktop-wifi.png)
 
 Another option is by adding it manually to the file **/etc/wpa_supplicant/wpa_supplicant.conf**. To adapt it we open it with the built-in text-editor **nano**.
 
