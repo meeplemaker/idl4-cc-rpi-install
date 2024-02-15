@@ -89,6 +89,10 @@ Finally, go back and change the name of the wireless connection as well. Set it 
 
 ![wireless step 4](img/_wireless.png)
 
+Your final screen should look like this...
+
+![network connections](img/_networkConnections)
+
 ### Step 5
 
 Now it's time to connect your Mac or PC with the ethernet-cable to the Raspberry Pi.
