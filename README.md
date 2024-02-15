@@ -91,7 +91,7 @@ Finally, go back and change the name of the wireless connection as well. Set it 
 
 Your final screen should look like this...
 
-![network connections](img/_networkConnections)
+![network connections](img/_networkConnections.png)
 
 ### Step 5
 
