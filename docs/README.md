@@ -21,7 +21,7 @@ After these steps your Raspberry Pi will act as a wired router. Network traffic 
 
 To configure your WIFI on your Raspberry Pi there are multiple options. The easiest one is to configure it using the GUI. Select your wifi-network in the upper left corner and type in the password.
 
-![Desktop WIFI](/img/_desktop-wifi.png)
+![Desktop WIFI](img/Xdesktop-wifi.png)
 
 ### Step 2
 
@@ -71,27 +71,27 @@ First connect an ethernet cable to the Raspberry Pi.
 
 Next, click on **Edit Connections**
 
-![wired step 1](img/_ethernet_1.png)
+![wired step 1](img/Xethernet-1.png)
 
 Click on **Wired connection 1**
 
-![wired step 2](img/_ethernet_2.png)
+![wired step 2](img/Xethernet-2.png)
 
 In the menu IPv4 Settings, set the method to **Shared to other computers**
 
-![wired step 3](img/_ethernet_3.png)
+![wired step 3](img/Xethernet-3.png)
 
 Set the address AND gateway to **192.168.100.1**. Also change the **Connection name** to **wired**
 
-![wired step 4](img/_ethernet_4.png)
+![wired step 4](img/Xethernet-4.png)
 
 Finally, go back and change the name of the wireless connection as well. Set it to **wireless**.
 
-![wireless step 4](img/_wireless.png)
+![wireless step 4](img/Xwireless.png)
 
 Your final screen should look like this...
 
-![network connections](img/_networkConnections.png)
+![network connections](img/XnetworkConnections.png)
 
 ### Step 5
 
