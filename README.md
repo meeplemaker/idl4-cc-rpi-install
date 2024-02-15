@@ -1,4 +1,4 @@
-# idl4-cc-rpi-install
+# idl4-cc-rpi-install (BOOKWORM)
 
 These instructions will guide you through the installation of your Raspberry Pi as we will use it during the IDL4-CC-labs.
 
@@ -19,41 +19,13 @@ After these steps your Raspberry Pi will act as a wired router. Network traffic 
 
 ### Step 1
 
-To configure your WIFI on your Raspberry Pi there are 2 options. The first one is to configure it using the GUI. Simply type it using the menu.
+To configure your WIFI on your Raspberry Pi there are multiple options. The easiest one is to configure it using the GUI. Select your wifi-network in the upper left corner and type in the password.
 
-![Desktop WIFI](/img/desktop-wifi.png)
-
-Another option is by adding it manually to the file **/etc/wpa_supplicant/wpa_supplicant.conf**. To adapt it we open it with the built-in text-editor **nano**.
-
-    sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
-    
-Add the following lines on the bottom of this file.
-
-    network={
-            ssid="THE_NAME_OF_YOUR_WIFI_NETWORK"
-            psk="THE_PASSWORD_OF_YOUR_WIFI_NETWORK"
-            key_mgmt=WPA-PSK
-    }
-
-Of course you have to change the **ssid** and **psk** with your own network settings.
-
-Your file should look similar like this. Close the editor by pressing **ctrl-x**
-
-![wpa_supplicant.conf step 1](/img/wpa-1.png)
-
-Confirm by pressing **y**
-
-![wpa_supplicant.conf step 2](/img/wpa-2.png)
-
-Finally press **return**
-
-![wpa_supplicant.conf step 3](/img/wpa-3.png)
-
-It's possible to add multiple networks. Just add them to the bottom of the file.
+![Desktop WIFI](/img/_desktop-wifi.png)
 
 ### Step 2
 
-On your Raspberry Pi, open a terminal window and type
+Everytime you install new things on your Raspberry Pi it's wise to update it first. On your Raspberry Pi, open a terminal window and type
 
     sudo apt update
     
@@ -61,7 +33,7 @@ Next, type
 
     sudo apt upgrade
 
-When this is finished, your system is up-to-date. It's wise to reboot your Raspberry Pi using
+When this is finished, your system is up-to-date. Now reboot your Raspberry Pi using
 
     sudo reboot
     
@@ -93,39 +65,30 @@ Finally close raspi-config by selecting **Finish**
 
 ### Step 4
 
-Next we will change some network settings on the Raspberry Pi. We will give the **eth0** interface a fixed IP-address. I suggest to use **192.168.100.1** but any other valid IP-address works as well of course. The settings are stored in /etc/dhcpcd.conf. So type
+All the network configuration is done using the GUI (well except for one thing) in Debian Bookworm. We already configured the wireless network. Since we want to connect to the Rapsberry Pi with an ethernet connection and want to share it's internet we will set up a shared ethernet network with the Raspberry Pi as the gateway.
 
-    sudo nano /etc/dhcpcd.conf
-    
-Copy-paste the following lines to the bottom of the file.
+First connect an ethernet cable to the Raspberry Pi.
 
-    interface wlan0
-    metric 200
-    
-    interface eth0
-    metric 300
-    static ip_address=192.168.100.1/24
-    static routers=192.168.100.1
-    static domain_name_servers=8.8.8.8
+Next, click on **Edit Connections**
 
-So what does it do? First, we give the **wlan0** interface a metric of 200 so outgoing network traffic (internet) will use this interface instead of the **eth0** interface. We also specify the metric of the **eth0** interface and give it a fixed IP-address of **192.168.100.1** with a subnet of **255.255.255.0**. From our Mac or PC, we will be able to reach the Raspberry Pi on this IP-address.
+![wired step 1](img/_ethernet_1.png)
 
-Close the editor by pressing **ctrl-x**
+Click on **Wired connection 1**
 
-![dchpcd.conf step 1](/img/dhcpcd-conf-1.png)
+![wired step 2](img/_ethernet_2.png)
 
-Confirm by pressing **y**
+In the menu IPv4 Settings, set the method to **Shared to other computers**
 
-![dchpcd.conf step 2](/img/dhcpcd-conf-2.png)
+![wired step 3](img/_ethernet_3.png)
 
-Finally press **return**
+Set the address AND gateway to **192.168.100.1**. Also change the **Connection name** to **wired**
 
-![dchpcd.conf step 3](/img/dhcpcd-conf-3.png)
+![wired step 4](img/_ethernet_4.png)
 
-Time to reboot once more!
+Finally, go back and change the name of the wireless connection as well. Set it to **wireless**.
 
-    sudo reboot
-    
+![wireless step 4](img/_wireless.png)
+
 ### Step 5
 
 Now it's time to connect your Mac or PC with the ethernet-cable to the Raspberry Pi.
@@ -162,35 +125,21 @@ If you have enabled VNC and installed VNC Viewer on your Mac or PC it's also pos
 
 ### Step 6
 
-Almost there! Our Raspberry Pi has internet connection but our Mac or PC has only access to the local network. We need to setup the Raspberry Pi so it shares it's internet connection. This is done by enable ip-forwarding.
+Almost there! Our Raspberry Pi has internet connection but our Mac or PC has only access to the local network. The Raspberry Pi already shares its internet connection. But since the ethernet connection has a lower metric than wifi (this is a standard setting) we need to change this so the default traffic uses the wifi connection. 
 
-Open the file /etc/sysctl.conf in nano
+Open a terminal window and type
 
-    sudo nano /etc/sysctl.conf
+    sudo nmcli connection modify wireless ipv4.route-metric 200
     
-Look for the line **#net.ipv4.ip_forward=1** and uncomment it by removing the #-symbol
+Where **wireless** is the name of the connection in **Network Connections**. In the same terminal window type
 
-Save the file by pressing **ctrl-x**
+    sudo nmcli connection modify wired ipv4.route-metric 300
 
-![sysctl](/img/sysctl.png)
+Again, **wired** is the name of the connection in **Network Connections.**
 
 We have to reboot so the Raspberry Pi is using the new settings.
 
     sudo reboot
-
-Our Raspberry Pi has a public IP-address on the **wlan0** interface. We have to set up [**Network Address Translation**](https://en.wikipedia.org/wiki/Network_address_translation) or **Masquerading** so the internet traffic is directed to our private network. This is done by adding a line to **iptables**, the Linux firewall.
-
-With the Raspberry Pi rebooted, type in the following command
-
-    sudo iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE
-    
-Next, type    
-   
-    sudo iptables -t nat -L
-
-You should get a similar result
-
-![iptables](/img/iptables.png)
 
 Now it's time to test if we have an internet connection. Fire up a browser on your Mac or PC and see if you can browse the internet. Alternatively you can open up a terminal window and type
 
@@ -199,39 +148,6 @@ Now it's time to test if we have an internet connection. Fire up a browser on yo
 You should get a window like this
 
 ![ping 8.8.8.8](/img/ping-internet.png)
-
-
-We will save this rule to a ruleset so we can use it whenever we want.
-
-First we make a directory where we will store the ruleset
-
-    sudo mkdir /etc/iptables
-
-Then, we make a file to copy the ruleset into
-
-    sudo touch /etc/iptables/rules.v4
-    
-Finally, save the current rules into the ruleset
-
-    sudo iptables-save | sudo tee /etc/iptables/rules.v4
-  
-Every time we boot up our Raspberry Pi we will copy these rules and add them to the firewall. Open the file /etc/rc.local
-
-    sudo nano /etc/rc.local
-
-And add the following line just before **exit0**
-
-    iptables-restore < /etc/iptables/rules.v4
-
-It should look similar like this
-
-![rc.local](/img/rc-local.png)
-
-Reboot your Raspberry Pi a final time
-
-    sudo reboot
-    
-Check a final time if you still have internet access on your Mac or PC.    
 
 ## Visual Studio Code
 
@@ -255,27 +171,7 @@ Of course it's only available on the Raspberry Pi's GUI but it's a handy applica
 
 ![Visual Studioc Code](/img/code.png)
 
-## Node-JS
-
-Next we will install Node-.js.
-
-First we have to add the repository for Node.js to your Raspberry Pi. You have 2 options. For the current release run the command.
-
-    curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
-
-For the current Long-Time-Release run the command
-
-    curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
-
-Now you can install Node.js by running the command
-
-    sudo apt install nodejs
-
-Afterwards you can check if Node.js is correctly installed by typing
-
-    node -v
-
-## Node-RED
+## Node-RED (and NodeJS)
 
 Node-RED is a programming tool for wiring together hardware devices, APIs and online services in new and interesting ways.
 
@@ -287,7 +183,7 @@ There's a handy script that does most of the work for us. Let's run it by typing
 
     bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered)
 
-The script will ask if we want to run the Pi-specific nodes. This is handy if we want to use the GPIO-pins. So press **Y**.
+The script will ask if we want to run the Pi-specific nodes. This is handy if we want to use the GPIO-pins. So press **Y**. This might take a while so be patient
 
 ![Node-RED script 1](/img/node-red-script-1.png)
 
