@@ -21,7 +21,7 @@ After these steps your Raspberry Pi will act as a wired router. Network traffic 
 
 To configure your WIFI on your Raspberry Pi there are multiple options. The easiest one is to configure it using the GUI. Select your wifi-network in the upper left corner and type in the password.
 
-![Desktop WIFI](/img/_desktop-wifi.png)
+![Desktop WIFI](/img/Xdesktop-wifi.png)
 
 ### Step 2
 
