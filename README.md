@@ -13,9 +13,9 @@ These instructions will guide you through the installation of your Raspberry Pi 
 
 ## Basic installation
 
-After these steps your Raspberry Pi will act as a wired router. Network traffic is forwarded in the Raspberry Pi so it is possible to access the internet while your Mac or PC is connected using an ethernet cable with the Raspberry PI.
+After these steps your Raspberry Pi will act as a wired router. Network traffic is forwarded in the Raspberry Pi so it is possile to access the internet while your Mac or PC is connected using an ethernet cable with the Raspberry PI.
 
-![General network setup](img/network.png)
+![General network setup](/img/network.png)
 
 ### Step 1
 
@@ -45,23 +45,23 @@ Next we will enable VNC so it is possible to access the Raspberry desktop from t
     
 Select **Interace Options**
 
-![raspi-config step 1](img/raspi-config-1.png)
+![raspi-config step 1](/img/raspi-config-1.png)
 
 Select **VNC**
 
-![raspi-config step 2](img/raspi-config-2.png)
+![raspi-config step 2](/img/raspi-config-2.png)
 
 Select **Yes** to enable VNC
 
-![raspi-config step 3](img/raspi-config-3.png)
+![raspi-config step 3](/img/raspi-config-3.png)
 
 **OK!**
 
-![raspi-config step 4](img/raspi-config-4.png)
+![raspi-config step 4](/img/raspi-config-4.png)
 
 Finally close raspi-config by selecting **Finish**
 
-![raspi-config step 5](img/raspi-config-5.png)
+![raspi-config step 5](/img/raspi-config-5.png)
 
 ### Step 4
 
@@ -99,11 +99,11 @@ Now it's time to connect your Mac or PC with the ethernet-cable to the Raspberry
 
 Give your Mac or PC a fixed IP-address in the same network range as the Raspberry Pi. I use **192.168.100.2** with a subnet of **255.255.255.0** but any other valid IP-address in the same network will work. Use the IP-address from the Raspberry PI - **192.168.100.1** as the router-address.
 
-![network settings step 1](img/network-settings-1.png)
+![network settings step 1](/img/network-settings-1.png)
 
 Set the DNS-server to **8.8.8.8**
 
-![network settings step 2](img/network-settings-2.png)
+![network settings step 2](/img/network-settings-2.png)
 
 Time to test the network connection. Open a terminal window on the Raspberry Pi. Type
 
@@ -111,7 +111,7 @@ Time to test the network connection. Open a terminal window on the Raspberry Pi.
     
 You should get the following result.
 
-![ping](img/ping.png)
+![ping](/img/ping.png)
 
 From now on it's possible to use [SSH](https://en.wikipedia.org/wiki/Secure_Shell) to access our Raspberry Pi. On our Mac or PC open a terminal window and type
 
@@ -119,11 +119,11 @@ From now on it's possible to use [SSH](https://en.wikipedia.org/wiki/Secure_Shel
     
 Type in the password of the Raspberry Pi (the default password: raspberry)
    
-![ssh step 1](img/ssh-1.png)
+![ssh step 1](/img/ssh-1.png)
 
 Et voilà, from now we have remote access to the Raspberry Pi.
 
-![ssh step 2](img/ssh-2.png)
+![ssh step 2](/img/ssh-2.png)
 
 If you have enabled VNC and installed VNC Viewer on your Mac or PC it's also possible to work on the remote desktop of the Raspberry Pi if you prefer to work with a GUI.
 
@@ -173,7 +173,7 @@ To install Visual Studio Code you type
 
 Of course it's only available on the Raspberry Pi's GUI but it's a handy application. You can find it under Menu -> Programming -> Visual Studio Code.
 
-![Visual Studioc Code](img/code.png)
+![Visual Studioc Code](/img/code.png)
 
 ## Node-RED (and NodeJS)
 
@@ -189,11 +189,11 @@ There's a handy script that does most of the work for us. Let's run it by typing
 
 The script will ask if we want to run the Pi-specific nodes. This is handy if we want to use the GPIO-pins. So press **Y**. This might take a while so be patient
 
-![Node-RED script 1](img/node-red-script-1.png)
+![Node-RED script 1](/img/node-red-script-1.png)
 
-It will ask if we want to use specific settings - we'll leave it like this. Just press **N**
+It will ask if we want to use specific settings - we'll leave this up for now. So press **N**
 
-![Node-RED script 2](img/node-red-script-2.png)
+![Node-RED script 2](/img/node-red-script-2.png)
 
 You can run Node-RED by typing
 
@@ -203,13 +203,13 @@ Next, open up a browser-window on your Mac or PC and go to
 
     192.168.100.1:1880
 
-That's it! As you can see Node-RED is running on your Raspberry Pi.
+And voilà, as you can see Node-RED is running on your Raspberry Pi.
 
-![Node-RED window 1](img/node-red-1.png)
+![Node-RED window 1](/img/node-red-1.png)
 
-You can stop Node-RED by pressing **ctrl-c**, Node-RED will be offline in your browser-window.
+You can stop Node-RED by pressin **ctrl-c**, Node-RED will be offline in your browser-window
 
-It's better to run Node-RED in the background. And this can be done by running it as a service.
+It's better to run Node-RED in the background. This can be done by running it as a service.
 
 You can start it by typing
 
@@ -221,11 +221,11 @@ We can stop it by typing
 
     node-red-stop
 
-To have access to the Node-RED's log type
+To have access to the Node-RED-log type
 
     node-red-log
 
-You can also start the Node-RED service on the Raspberry Pi OS Desktop by selecting the Menu -> Programming -> Node-RED menu option. It will open up Node-RED's log as well.
+You can also start the Node-RED service on the Raspberry Pi OS Desktop by selecting the Menu -> Programming -> Node-RED menu option. It will open up the Node-RED-log as well.
 
 To autostart Node-RED when we boot the Raspberry Pi we have to enable it using **systemctl**
 
@@ -233,6 +233,6 @@ To enable it type
 
     sudo systemctl enable nodered.service
 
-Disabling the service can be done with
+Disable the service can be done with
 
     sudo systemctl disable nodered.service
