@@ -1,4 +1,4 @@
-# idl4-cc-rpi-install (BOOKWORM)
+# idl4-cc-rpi-install | DEBIAN BOOKWORM
 
 These instructions will guide you through the installation of your Raspberry Pi as we will use it during the IDL4-CC-labs.
 
