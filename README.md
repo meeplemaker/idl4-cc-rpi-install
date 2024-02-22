@@ -135,11 +135,11 @@ Open a terminal window and type
 
     sudo nmcli connection modify wireless ipv4.route-metric 200
     
-Where **wireless** is the name of the connection in **Network Connections**. In the same terminal window type
+Where **wireless** is the name of the connection in **Network Connections**. If you ever add a configuration with a new wireless network remember to repeat this command but simply change the name of the wireless connection. In the same terminal window type
 
     sudo nmcli connection modify wired ipv4.route-metric 300
 
-Again, **wired** is the name of the connection in **Network Connections.**
+Again, **wired** is the name of the connection in **Network Connections.**.
 
 We have to reboot so the Raspberry Pi is using the new settings.
 
