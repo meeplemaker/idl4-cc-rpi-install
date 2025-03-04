@@ -183,7 +183,12 @@ It provides a browser-based editor that makes it easy to wire together flows usi
 
 It's a great tool to run on the Raspberry Pi since it can easyly be used as a back-end for your multimedia installation. There are multiple ways to run Node-RED but we will run it locally on our Raspberry Pi. More information and the complete installation procedure can be found on https://nodered.org/docs/getting-started/raspberrypi
 
-There's a handy script that does most of the work for us. Let's run it by typing
+Before we install Node-RED it's wise to install Node.js manually so we can decide the version it uses by ourself. A good choice is version 18. You can install it by typing
+
+    curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - &&\ sudo apt-get install -y nodejs
+
+
+Then run this script to install Node-RED
 
     bash <(curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered)
 
