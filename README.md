@@ -185,7 +185,7 @@ It's a great tool to run on the Raspberry Pi since it can easyly be used as a ba
 
 Before we install Node-RED it's wise to install Node.js manually so we can decide the version it uses by ourself. A good choice is version 18. You can install it by typing
 
-    curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - &&\ sudo apt-get install -y nodejs
+    curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - &&\ sudo apt-get install -y nodejs
 
 
 Then run this script to install Node-RED
